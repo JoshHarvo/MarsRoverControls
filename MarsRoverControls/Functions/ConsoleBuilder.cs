@@ -40,7 +40,7 @@
             WriteToConsole(Strings.Introduction1);
             Console.ForegroundColor= ConsoleColor.Gray;
 
-            WriteToConsole(Strings.AwaitCommand0);
+            WriteToConsole(Strings.AwaitCommandIntroduction);
         }
         
         internal void AwaitCommand()

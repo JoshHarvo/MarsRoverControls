@@ -27,9 +27,10 @@
         {
             string mapLine;
 
+
             for (var yAxis = _map.Height; yAxis > -1; yAxis--)
             {
-                int calibratedYAxis = yAxis + _map.YAxisCalibrator;
+                int calibratedYAxis = _map.CalibratedHeight - yAxis;
 
                 if (yAxis == _map.Height || yAxis == 1)
                     mapLine = XAxisBoarder();
@@ -76,7 +77,7 @@
                 if (calibratedYAxis.ToString().Length == _map.YAxisLabelSize)
                     return calibratedYAxis.ToString();
 
-                return GenerateSpaces(spacesNeeded) + calibratedYAxis.ToString();
+                return new String(' ', spacesNeeded) + calibratedYAxis.ToString();
             }
             else
                 return _map.EmptyXAxisBoarder; 
@@ -109,20 +110,8 @@
                 else
                     xLabels = xLabels + " ";
             }
-
+            
             return xLabels;
-        }
-
-        public static string GenerateSpaces(int spacesNeeded)
-        {
-            var spaces = "";
-
-            for (var i = 0; i != spacesNeeded; i++)
-            {
-                spaces = spaces + " ";
-            }
-
-            return spaces;
         }
     }
 }

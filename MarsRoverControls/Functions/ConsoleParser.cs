@@ -64,8 +64,6 @@
 
         private int ExtractDistance (string word)
         {
-           
-
             if(word.EndsWith("m"))
                 word = word.TrimEnd(Strings.Meter);
 

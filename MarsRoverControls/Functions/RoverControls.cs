@@ -61,33 +61,31 @@
             if (_data.Oritentation[0] == -1 && _data.Oritentation[1] == 0)
             {
                 if (command.Rotate == "left")
-                    _data.Oritentation = new int[] { 0, 1 };
-                else
                     _data.Oritentation = new int[] { 0, -1 };
+                else
+                    _data.Oritentation = new int[] { 0, 1 };
             }
             else if (_data.Oritentation[0] == 0 && _data.Oritentation[1] == 1)
             {
                 if (command.Rotate == "left")
-                    _data.Oritentation = new int[] { 1, 0 };
-                else
                     _data.Oritentation = new int[] { -1, 0 };
+                else
+                    _data.Oritentation = new int[] { 1, 0 };
             }
             else if (_data.Oritentation[0] == 1 && _data.Oritentation[1] == 0)
             {
                 if (command.Rotate == "left")
-                    _data.Oritentation = new int[] { 0, -1 };
-                else
                     _data.Oritentation = new int[] { 0, 1 };
+                else
+                    _data.Oritentation = new int[] { 0, -1 };
             }
             else if (_data.Oritentation[0] == 0 && _data.Oritentation[1] == -1)
             {
                 if (command.Rotate == "left")
-                    _data.Oritentation = new int[] { -1, 0 };
-                else
                     _data.Oritentation = new int[] { 1, 0 };
+                else
+                    _data.Oritentation = new int[] { -1, 0 };
             }
-
-
         }
 
         private void MoveRover(Command command)

@@ -10,6 +10,7 @@ namespace MarsRoverControls.Models
     {
         public int YAxisLabelSize { get; }
         public int Height { get; }
+        public int CalibratedHeight { get; }
         public int Width { get; }
         public int XAxisCalibrator { get; }
         public int YAxisCalibrator { get; }
@@ -19,14 +20,14 @@ namespace MarsRoverControls.Models
         {
             int xAxisBoardersSize = 2;
             int yAxisBoardersSize = 2;
-            
 
             YAxisLabelSize = (mapDimensions[0] - 1).ToString().Length;
             Height = mapDimensions[0] + 1;
             Width = YAxisLabelSize + mapDimensions[1] + xAxisBoardersSize;
             XAxisCalibrator = -YAxisLabelSize - xAxisBoardersSize;
             YAxisCalibrator = -(yAxisBoardersSize/2);
-            EmptyXAxisBoarder = MapBuilder.GenerateSpaces(YAxisLabelSize);
+            CalibratedHeight = Height + YAxisCalibrator;
+            EmptyXAxisBoarder = new string(' ', YAxisLabelSize);
         }
     }
 }
