@@ -27,14 +27,13 @@
         {
             string mapLine;
 
-
-            for (var yAxis = _map.Height; yAxis > -1; yAxis--)
+            for (var yAxis = _map.Height; yAxis > -2; yAxis--)
             {
                 int calibratedYAxis = _map.CalibratedHeight - yAxis;
 
-                if (yAxis == _map.Height || yAxis == 1)
+                if (yAxis == _map.Height || yAxis == 0)
                     mapLine = XAxisBoarder();
-                else if (yAxis == 0)
+                else if (yAxis == -1)
                     mapLine = XAxisLabels();
                 else
                     mapLine = BuildXAxis(calibratedYAxis, yAxis);
@@ -98,14 +97,14 @@
             var xLabels = _map.EmptyXAxisBoarder;
             var calibratdXAxis = 0;
 
-            for (var xAxis = 0; xAxis < _data.MapDimensions[1]; xAxis++)
+            for (var xAxis = - _map.XAxisCalibrator - 1; xAxis < _map.Width; xAxis++)
             {
                 calibratdXAxis = xAxis + _map.XAxisCalibrator;
 
                 if (calibratdXAxis % 10 == 0)
                 {
                     xLabels = xLabels + calibratdXAxis.ToString();
-                    xAxis = xAxis + calibratdXAxis.ToString().Length;
+                    xAxis = xAxis + calibratdXAxis.ToString().Length -1;
                 }
                 else
                     xLabels = xLabels + " ";

@@ -32,27 +32,28 @@
 
         private void ExecuteCommands()
         {
+            var boundryMet = false;
+
             foreach(Command command in _data.Commands)
             {
-                if (command.Type == "rotate")
+                if (command.Type == "rotate" && !boundryMet)
                     RotateRover(command);
 
-                else if (command.Type == "move")
+                else if (command.Type == "move" && !boundryMet)
                 {
                     MoveRover(command);
 
-                    if (!ValidateMovement())
-                    {
-                        _console.Boundary();
-                        _data.Commands.Clear();
-                        return;
-                    }
+                    boundryMet = !ValidateMovement();
                 }
                 else if (command.Type == "map")
                     _console.ToggleMap();
             }
 
-            _console.GiveCoordinate();
+            if(boundryMet)
+                _console.Boundary();
+            else
+                _console.GiveCoordinate();
+
             _data.Commands.Clear();
         }
 
